@@ -14,6 +14,8 @@
   
   <h1>MyManga-Collection</h1>
 
+  <a href="add.php">[+] Add new manga</a> <br><br>
+
   <table border="1" cellspacing="0" cellpadding="5">
     <tr>
       <th>No.</th>
