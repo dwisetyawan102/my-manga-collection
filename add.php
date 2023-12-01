@@ -1,22 +1,20 @@
 <?php 
-  $db = mysqli_connect("localhost", "root", "", "dbmanga");
+  require "functions.php";
 
   if( isset($_POST["submit"]) ) {
-    $title = $_POST["title"];
-    $mangaka = $_POST["mangaka"];
-    $year = $_POST["year"];
-    $cover = $_POST["cover"];
-
-    $query = "INSERT INTO tbmanga VALUES('', '$title', '$mangaka', '$year', '$cover')";
-
-    mysqli_query($db, $query);
-
-    if( mysqli_affected_rows($db) > 0 ) {
-      echo "Succes adding new manga!";
+    if( add($_POST) > 0 ) {
+      echo "
+        <script>
+          alert('Succes adding new manga!');
+          document.location.href = 'index.php';
+        </script>
+      ";
     } else {
-      echo "Error adding new manga!";
-      echo "<br>";
-      echo mysqli_error($db);
+      echo "
+        <script>
+          alert('Error adding new manga!');
+        </script>
+      ";
     }
   }
 ?>
