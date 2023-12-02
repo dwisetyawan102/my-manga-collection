@@ -32,4 +32,11 @@
 
     return mysqli_affected_rows($db);
   }
+
+  function delete($id) {
+    global $db;
+
+    mysqli_query($db, "DELETE FROM tbmanga WHERE id = $id");
+    return mysqli_affected_rows($db);
+  }
 ?>

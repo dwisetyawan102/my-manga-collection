@@ -35,7 +35,7 @@
       <td><?php echo $manga["year"] ?></td>
       <td>
         <a href="">Update</a> |
-        <a href="">Delete</a>
+        <a href="delete.php?id=<?php echo $manga["id"] ?>" onclick="return confirm('Delete this manga?');">Delete</a>
       </td>
     </tr>
     <?php } ?>
