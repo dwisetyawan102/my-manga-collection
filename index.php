@@ -30,7 +30,7 @@
     <tr>
       <td><?php echo $i++ ?></td>
       <td><img src="cover/<?php echo $manga["cover"] ?>" alt=""></td>
-      <td><?php echo $manga["title"] ?></td>
+      <td><?php echo $manga["title"] ?><a href="detail.php?id=<?php echo $manga["id"] ?>">Detail</a></td>
       <td><?php echo $manga["mangaka"] ?></td>
       <td><?php echo $manga["year"] ?></td>
       <td>

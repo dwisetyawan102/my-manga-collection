@@ -39,4 +39,14 @@
     mysqli_query($db, "DELETE FROM tbmanga WHERE id = $id");
     return mysqli_affected_rows($db);
   }
+
+  function detail() {
+    global $db;
+
+    $id = $_GET["id"];
+    $result = mysqli_query($db, "SELECT * FROM tbmanga WHERE id = $id");
+    $row = mysqli_fetch_assoc($result);
+
+    return $row;
+  }
 ?>
