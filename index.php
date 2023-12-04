@@ -22,7 +22,7 @@
       <th>Cover</th>
       <th>Title</th>
       <th>Mangaka</th>
-      <th>Year</th>
+      <th>Release Year</th>
       <th>Action</th>
     </tr>
     <?php $i = 1 ?>
@@ -32,9 +32,9 @@
       <td><img src="cover/<?php echo $manga["cover"] ?>" alt=""></td>
       <td><?php echo $manga["title"] ?><a href="detail.php?id=<?php echo $manga["id"] ?>">Detail</a></td>
       <td><?php echo $manga["mangaka"] ?></td>
-      <td><?php echo $manga["year"] ?></td>
+      <td><?php echo $manga["releaseyear"] ?></td>
       <td>
-        <a href="">Update</a> |
+        <a href="update.php?id=<?php echo $manga["id"] ?>">Update</a> |
         <a href="delete.php?id=<?php echo $manga["id"] ?>" onclick="return confirm('Delete this manga?');">Delete</a>
       </td>
     </tr>

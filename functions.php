@@ -23,10 +23,10 @@
 
     $title = htmlspecialchars($data["title"]);
     $mangaka = htmlspecialchars($data["mangaka"]);
-    $year = htmlspecialchars($data["year"]);
+    $releaseyear = htmlspecialchars($data["releaseyear"]);
     $cover = htmlspecialchars($data["cover"]);
 
-    $query = "INSERT INTO tbmanga VALUES('', '$title', '$mangaka', '$year', '$cover')";
+    $query = "INSERT INTO tbmanga VALUES('', '$title', '$mangaka', '$releaseyear', '$cover')";
 
     mysqli_query($db, $query);
 
@@ -48,5 +48,21 @@
     $row = mysqli_fetch_assoc($result);
 
     return $row;
+  }
+
+  function update($data) {
+    global $db;
+
+    $id = $data["id"];
+    $title = htmlspecialchars($data["title"]);
+    $mangaka = htmlspecialchars($data["mangaka"]);
+    $releaseyear = htmlspecialchars($data["releaseyear"]);
+    $cover = htmlspecialchars($data["cover"]);
+
+    $query = "UPDATE tbmanga SET title = '$title', mangaka = '$mangaka', releaseyear = '$releaseyear', cover = '$cover' WHERE id = $id";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
   }
 ?>
