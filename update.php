@@ -43,7 +43,7 @@
       <li><input type="text" name="mangaka"  placeholder="mangaka" value="<?php echo $manga["mangaka"] ?>" required></li>
       <li><input type="text" name="releaseyear"  placeholder="releaseyear" value="<?php echo $manga["releaseyear"] ?>" required></li>
       <li><img src="cover/<?php echo $manga["cover"] ?>" alt="" width="80"></li>
-      <li><input type="file" name="cover"  placeholder="cover" value="<?php echo $manga["cover"] ?>" required></li>
+      <li><input type="file" name="cover"  placeholder="cover" value="<?php echo $manga["cover"] ?>"></li>
     <button type="submit" name="submit">Update manga!</button>  
     </ul>
   </form>
