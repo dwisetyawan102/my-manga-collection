@@ -32,10 +32,10 @@
 
   <form action="" method="post" enctype="multipart/form-data">
     <ul>
-      <li><input type="text" name="title" id="" placeholder="title" require></li>
-      <li><input type="text" name="mangaka" id="" placeholder="mangaka" require></li>
-      <li><input type="text" name="releaseyear" id="" placeholder="releaseyear" require></li>
-      <li><input type="file" name="cover" id="" placeholder="cover" accept="image/*" require></li>
+      <li><input type="text" name="title" id="" placeholder="title" required></li>
+      <li><input type="text" name="mangaka" id="" placeholder="mangaka" required></li>
+      <li><input type="text" name="releaseyear" id="" placeholder="releaseyear" required></li>
+      <li><input type="file" name="cover" id="" placeholder="cover" accept="image/*" required></li>
     </ul>
     <button type="submit" name="submit">Add manga!</button>
   </form>
