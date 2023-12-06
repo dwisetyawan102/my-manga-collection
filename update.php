@@ -35,13 +35,15 @@
 
   <h1>Input manga details</h1>
 
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $manga["id"] ?>">
+    <input type="hidden" name="oldCover" value="<?php echo $manga["cover"] ?>">
     <ul>
       <li><input type="text" name="title"  placeholder="title" value="<?php echo $manga["title"] ?>" require></li>
       <li><input type="text" name="mangaka"  placeholder="mangaka" value="<?php echo $manga["mangaka"] ?>" require></li>
       <li><input type="text" name="releaseyear"  placeholder="releaseyear" value="<?php echo $manga["releaseyear"] ?>" require></li>
-      <li><input type="text" name="cover"  placeholder="cover" value="<?php echo $manga["cover"] ?>" require></li>
+      <li><img src="cover/<?php echo $manga["cover"] ?>" alt="" width="80"></li>
+      <li><input type="file" name="cover"  placeholder="cover" value="<?php echo $manga["cover"] ?>" require></li>
     <button type="submit" name="submit">Update manga!</button>  
     </ul>
   </form>

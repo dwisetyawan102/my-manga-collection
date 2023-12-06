@@ -1,6 +1,10 @@
 <?php 
   require "functions.php";
-  $mangas = query("SELECT * FROM tbmanga");
+  $mangas = query("SELECT * FROM tbmanga ORDER BY id DESC");
+
+  if( isset($_POST["search"]) ) {
+    $mangas = search($_POST["keyword"]);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +19,12 @@
   <h1>MyManga-Collection</h1>
 
   <a href="add.php">[+] Add new manga</a> <br><br>
+
+  <form action="" method="post">
+    <input type="text" name="keyword" size="50" autocomplete="off" autofocus placeholder="search by title / mangaka / year...">
+    <button type="submit" name="search">Search</button>
+  </form>
+  <br>
 
   <table border="1" cellspacing="0" cellpadding="5">
     <tr>
