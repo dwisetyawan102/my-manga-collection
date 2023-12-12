@@ -1,4 +1,11 @@
 <?php 
+  session_start();
+
+  if( !isset($_SESSION["login"]) ) {
+    header("Location: login.php");
+    exit;
+  }
+
   require "functions.php";
   $mangas = query("SELECT * FROM tbmanga ORDER BY id DESC");
 
@@ -16,6 +23,8 @@
 </head>
 <body>
   
+  <a href="logout.php">Logout</a>
+
   <h1>MyManga-Collection</h1>
 
   <a href="add.php">[+] Add new manga</a> <br><br>

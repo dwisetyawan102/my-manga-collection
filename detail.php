@@ -1,4 +1,11 @@
 <?php 
+  session_start();
+
+  if( !isset($_SESSION["login"]) ) {
+    header("Location: login.php");
+    exit;
+  }
+
   require "functions.php";
 
   // $db = mysqli_connect("localhost", "root", "", "dbmanga");
@@ -23,7 +30,7 @@
       <h2><?php echo $row["title"] ?></h2>
     </li>
     <li><?php echo $row["mangaka"] ?></li>
-    <li><?php echo $row["year"] ?></li>
+    <li><?php echo $row["releaseyear"] ?></li>
   </ul>
 
 </body>
