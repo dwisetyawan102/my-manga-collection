@@ -7,7 +7,20 @@
   }
 
   require "functions.php";
-  $mangas = query("SELECT * FROM tbmanga ORDER BY id DESC");
+
+  // pagination
+  $numberOfDataPerPage = 2;
+  $result = mysqli_query($db, "SELECT * FROM tbmanga");
+  $numberOfData = mysqli_num_rows($result);
+  $numberOfPages = ceil($numberOfData / $numberOfDataPerPage);
+  if( isset($_GET["page"]) ) {
+    $activePage = $_GET["page"];
+  } else {
+    $activePage = 1;
+  }
+  $beginningData = ( $numberOfDataPerPage * $activePage ) - $numberOfDataPerPage;
+  
+  $mangas = query("SELECT * FROM tbmanga ORDER BY id DESC LIMIT $beginningData, $numberOfDataPerPage");
 
   if( isset($_POST["search"]) ) {
     $mangas = search($_POST["keyword"]);
@@ -59,6 +72,23 @@
     </tr>
     <?php } ?>
   </table>
+  <br>
+
+  <?php if( $activePage > 1 ) : ?>
+    <a href="?page=<?php echo $activePage - 1 ?>">&laquo;</a>
+  <?php endif; ?>
+
+  <?php for($i = 1; $i <= $numberOfPages; $i++) : ?>
+    <?php if( $i == $activePage ) : ?>
+      <a href="?page=<?php echo $i ?>" style="font-weight: bold; color: red;"><?php echo $i ?></a>
+    <?php else : ?>
+      <a href="?page=<?php echo $i ?>"><?php echo $i ?></a>
+    <?php endif; ?>
+  <?php endfor; ?>
+
+  <?php if( $activePage < $numberOfPages ) : ?>
+    <a href="?page=<?php echo $activePage + 1 ?>">&raquo;</a>
+  <?php endif; ?>
 
 </body>
 </html>
